@@ -1,0 +1,19 @@
+<launch>
+    <!-- Training parameters -->
+    <arg name="num_episodes" default="500" />
+    <arg name="max_steps" default="1000" />
+    <arg name="save_frequency" default="50" />
+    <arg name="model_dir" default="$(find drone_rl_navigation)/models/" />
+    
+    <!-- Training Node -->
+    <node name="training_node" pkg="drone_rl_navigation" type="training_node.py" output="screen">
+        <param name="num_episodes" value="$(arg num_episodes)" />
+        <param name="max_steps" value="$(arg max_steps)" />
+        <param name="save_frequency" value="$(arg save_frequency)" />
+        <param name="model_dir" value="$(arg model_dir)" />
+    </node>
+    
+    <!-- Optional: rqt_plot for monitoring training -->
+    <node name="training_monitor" pkg="rqt_plot" type="rqt_plot" 
+          args="/training/episode_reward" />
+</launch>

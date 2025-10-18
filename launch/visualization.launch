@@ -1,0 +1,12 @@
+<launch>
+    <!-- Path Visualizer Node -->
+    <node name="path_visualizer" pkg="drone_rl_navigation" type="path_visualizer.py" output="screen" />
+    
+    <!-- RViz -->
+    <node name="rviz" pkg="rviz" type="rviz" 
+          args="-d $(find drone_rl_navigation)/config/drone_nav.rviz" />
+    
+    <!-- Static transforms -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="world_broadcaster" 
+          args="0 0 0 0 0 0 1 map world" />
+</launch>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>drone_rl_navigation</name>
+  <version>1.0.0</version>
+  <description>3D path visualization and RL-based drone navigation</description>
+  
+  <maintainer email="your_email@example.com">Your Name</maintainer>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>sensor_msgs</depend>
+  
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-matplotlib</exec_depend>
+  
+  <export>
+  </export>
+</package>

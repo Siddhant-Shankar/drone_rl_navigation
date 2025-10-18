@@ -1,0 +1,27 @@
+visualization:
+  path_color: [0.0, 1.0, 0.0, 0.8] # RGBA - Green
+  drone_color: [0.0, 0.0, 1.0, 1.0] # RGBA - Blue
+  goal_color: [1.0, 1.0, 0.0, 0.9] # RGBA - Yellow
+  obstacle_color: [1.0, 0.0, 0.0, 0.5] # RGBA - Red
+
+  path_width: 0.05
+  drone_size: [0.3, 0.3, 0.1]
+  goal_size: 0.6
+
+  update_rate: 10 # Hz
+  marker_lifetime: 0.0 # 0 = forever
+
+control:
+  update_rate: 10 # Hz
+  velocity_scale: 2.0
+
+  # Safety limits
+  max_linear_velocity: 5.0
+  max_angular_velocity: 2.0
+
+  # PID backup controller (if RL fails)
+  use_pid_backup: false
+  pid_gains:
+    kp: [1.0, 1.0, 1.0]
+    ki: [0.1, 0.1, 0.1]
+    kd: [0.5, 0.5, 0.5]

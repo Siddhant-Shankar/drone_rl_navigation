@@ -1,0 +1,23 @@
+<launch>
+    <!-- Arguments -->
+    <arg name="use_trained" default="false" />
+    <arg name="model_path" default="$(find drone_rl_navigation)/models/trained_agent.npy" />
+    <arg name="rviz" default="true" />
+    
+    <!-- RL Controller Node -->
+    <node name="rl_controller" pkg="drone_rl_navigation" type="rl_controller.py" output="screen">
+        <param name="use_trained" value="$(arg use_trained)" />
+        <param name="model_path" value="$(arg model_path)" />
+    </node>
+    
+    <!-- Path Visualizer Node -->
+    <node name="path_visualizer" pkg="drone_rl_navigation" type="path_visualizer.py" output="screen" />
+    
+    <!-- RViz -->
+    <node if="$(arg rviz)" name="rviz" pkg="rviz" type="rviz" 
+          args="-d $(find drone_rl_navigation)/config/drone_nav.rviz" />
+    
+    <!-- Static transform for world frame -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="world_broadcaster" 
+          args="0 0 0 0 0 0 1 map world" />
+</launch>

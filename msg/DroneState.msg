@@ -1,0 +1,8 @@
+Header header
+geometry_msgs/Point position
+geometry_msgs/Vector3 velocity
+geometry_msgs/Vector3 acceleration
+geometry_msgs/Quaternion orientation
+float64 battery_level
+bool obstacle_detected
+float64 target_distance
